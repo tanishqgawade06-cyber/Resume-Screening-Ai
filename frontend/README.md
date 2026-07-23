@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# TalentLens AI 🧠📄
+**Semantic NLP Resume Screening Engine**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Online-success?style=for-the-badge&logo=vercel)](https://resume-screening-ai-ge5s.vercel.app/)
+[![Frontend](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
+[![Backend](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](#)
+[![Deployment](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](#)
 
-## Available Scripts
+TalentLens AI is a full-stack machine learning web application that uses Natural Language Processing (NLP) to semantically evaluate and score a candidate's resume against a target job description. 
 
-In the project directory, you can run:
+This project was engineered to demonstrate applied ML logic, RESTful API architecture, and multi-cloud deployment constraints.
 
-### `npm start`
+## 🚀 Live Demo
+**Test the application here:** [TalentLens AI Live on Vercel](https://resume-screening-ai-ge5s.vercel.app/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*(Note: The backend is hosted on a free Render tier and may take ~45 seconds to wake up for the first request. Subsequent requests are instant.)*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack & Architecture
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend (Client)
+* **Framework:** React.js
+* **Styling:** Tailwind CSS, Lucide Icons
+* **Hosting:** Vercel
+* **Features:** Asynchronous form data handling, responsive UI, real-time loading states.
 
-### `npm run build`
+### Backend (API Engine)
+* **Framework:** Python / FastAPI
+* **NLP & ML:** SpaCy (`en_core_web_sm`), PyTorch (CPU-Optimized)
+* **Document Parsing:** PyPDF2
+* **Hosting:** Render (via custom Docker container)
+* **Features:** Custom CORS middleware, semantic similarity scoring, missing keyword extraction.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧠 Engineering & DevOps Highlights
+Taking this application from `localhost` to the cloud required solving several deployment and architectural challenges:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **Cloud Memory Optimization:** To bypass Render's strict 512MB RAM free-tier limit, standard PyTorch/CUDA installations (1.5GB+) would crash the build. I engineered a custom Docker build to strictly install **CPU-only PyTorch binaries**, reducing the container footprint by over 70% and successfully deploying within memory constraints.
+* **Cross-Origin Resource Sharing (CORS):** Implemented strict middleware protocols in FastAPI to allow secure preflight requests and data transfer specifically from the Vercel frontend.
+* **Stateless Processing:** The API operates completely statelessly, processing PDF binary data in memory and returning JSON payloads without requiring persistent database storage.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 💻 Local Setup & Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you want to run this project locally, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/your-username/Resume-Screening-Ai.git](https://github.com/tanishqgawade06-cyber/Resume-Screening-Ai.git)
+cd Resume-Screening-Ai
