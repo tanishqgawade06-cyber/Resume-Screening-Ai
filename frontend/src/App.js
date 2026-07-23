@@ -16,7 +16,7 @@ export default function ResumeScreener() {
     formData.append("job_description", jd);
 
     try {
-      const response = await fetch("http://localhost:8000/screen", {
+      const response = await fetch( "https://resume-screening-ai-1-x02b.onrender.com", {
         method: "POST",
         body: formData,
       });
